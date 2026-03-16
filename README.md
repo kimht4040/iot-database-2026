@@ -156,7 +156,7 @@
   - TCL - 트랜잭션 제어어. BEGIN TRAN, COMMIT, ROLLBACK 같은 트랜잭션 처리로 동시성 제어를 위한 언어.
 
 
-### SELECT 실습
+#### SELECT 실습
 
 - 기본문법
     ```sql
@@ -212,7 +212,7 @@ SELECT ALL|DISTINCT 컬럼1, ...
   ORDER BY 정렬 조건
 ```
 
-
+### 필터링
 - WHERE 절 - 전체 테이터에서 필요한 것만 필터링
   - 비교 : =(같다), <>(같지 않다), != (DB 종류별로), < , >, <=, >=
   - 범위 : price BETWEEN 10000 AND 20000 (이하 이상만 가능 초과 미만은 불가능)
@@ -228,6 +228,12 @@ SELECT ALL|DISTINCT 컬럼1, ...
 
 
 - ORDER BY - 정렬 ASC(오름차순), DESC(내림차순)
+  - sum - 합
+  - count - 총 개수
+  - min - 최소값
+  - max - 최대값
+  - avg - 평균
+  - std - 표준편차
 
 - Alias - 별명으로 컬럼명, 테이블 명 등 원래의 이름을 바꿔쓰고 싶을 때 as사용
   - 쌍따옴표로 별명을 지정하는 것이 좋음
@@ -235,10 +241,40 @@ SELECT ALL|DISTINCT 컬럼1, ...
 - HAVING - 일반 필터링은 where 절로, 집계함수 필터링은 having절로 수행함
 
 - GROUP BY, HAVING 주의사항
-  - select -> from -> where -> group by -> having -> order by 순으로 써야함
+  - SELECT -> FROM -> WHERE -> GROUP BY -> HAVING -> ORDER BY 순으로 써야함
     - having 사용하려면 무조건 앞에 그룹바이가 존재해야함
     - 집계함수 외 일반컬럼은 SELECT와 GROUP BY를 일치시킬 것
     - HAVING 절에는 집계함수 필터링을 사용해야함
     - WHERE 절에 집계함수 사용불가
+
+### JOIN
+- JOIN - 관계형 DB의 핵심기능
+  - 두 개 이상의 테이블을 합쳐서 하나의 테이블처럼 보여주는 기법
+
+- JOIN 종류
+  - INNER JOIN - 조인 중에서 가장 간단한 조인 컬럼이 일치하는 데이터만 조회
+  - OUTER JOIN - 한 테이블 기준으로 데이터가 일치하지 않는 데이터까지 나오도록 조회하는 조인
+    - LEFT OUTER JOIN - 두 개의 테이블 중 앞쪽 테이블 기준
+    - RIGHT OUTER JOIN - 두 개의 테이블 중 뒤쪽 테이블 기준
+
+
+### 서브쿼리(부속질의)
+- SubQuery - 쿼리 내부에 포함되는 하위쿼리, 항상 소괄호() 내에 작성
+  - 서브쿼리는 괄호안의 쿼리부터 먼저 작성
+  - 메인쿼리 - 소괄호 밖의 쿼리
+  - 서브쿼리 - 소괄호 안의 쿼리
+
+
+
+
+## 3일차
+### SELECT 실습
+#### 서브쿼리 계속
+#### 집합연산
+#### DML 기타
+#### INSERT
+#### UPDATE
+#### DELETE
+
 
 

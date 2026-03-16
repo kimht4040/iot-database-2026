@@ -3,5 +3,8 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/day1/1. SELECT기본.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/day2/1. SELECT기본.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day2/1. 연습문제.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day2/2. 부족질의.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day2/3. JOIN.sql" dialect="MySQL" />
   </component>
 </project>
