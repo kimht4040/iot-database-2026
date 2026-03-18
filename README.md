@@ -370,13 +370,59 @@ CREATE USER 사용자명 IDENTIFIED BY 비번;
 
 ## 4일차
 
+### 데이터베이스 연습 자료
+- insert into 대량 삽입 - mysql 방법
+```sql
+insert into 테이블명 values (컬럼1값... 컬럼n값),
+(컬럼1값... 컬럼n값),
+(컬럼1값... 컬럼n값),
+```
+
+
+- https://dev.mysql.com/doc/index-other.html?ref=dbwriter.io
+- https://www.mysqltutorial.org/getting-started-with-mysql/mysql-sample-database/
+
+
 ### DDL 계속
 
+
+
+#### 제약조건
+- 데이터베이스에 정확한 데이터가 들어갈 수 있도록, 테이블 각 컬럼별 입력가능한 데이터를 지정하는 것
+- 종류: 기본키(primary key), 단일(unique),널 허용 여부(null), 체크(check), 기본값(default), 외래키(foreign key)
+
+
+#### create 계속
+- create 구문
+  - primary key (컬럼1 또는 여러개)
+  - foreign key (custid) references NewCustomer(custid) on delete cascade
+    - references : 참조하는 부모테이블과 pk 컬럼
+    - on delete cascade : 부모가 삭제될 경우 자식도 같이 삭제함
+    - on delete set null : 부모 테이블의 pk 값이 삭제되면, 자식 테이블의 fk 값은 null로 변경한다.
+    - on update cascade | set null : 부모 테이블의 기본 키(Primary Key) 값이 변경되면, 해당 값을 참조하고 있는 자식 테이블의 외래 키 값도 자동으로 동일하게 변경 | 부모 테이블의 값이 변경되면, 자식 테이블의 관련 외래 키 값을 NULL로 변경합니다. 
+- AUTO_INCREMENT : 테이블에 데이터 삽입할때 숫자타입 pk의 값을 자동으로 증가시켜서 만들어주는 기능
+  - pk컬럼은 insert 문에서 생략
+  
 #### ALTER
+- alter 
+  - 객체 수정, 테이블 이외에서 많이 사용 안됨
+```sql
+alter table 테이블명
+  [add 속성명 데이터타입]
+  [drop column 속성명]
+  [modify 속성명 데이터타입]
+  [modify 속성명 [null|not null]]
+  [add primary key(컬럼명)]
+  [[add|drop] 제약조건명]
+```
 
 
 
-
-### DROP
-
+#### DROP
+- drop
+  - 객체 삭제
+  - 테이블에서 관계를 맺고 있는 자식테이블을 먼저 삭제해야 부모테이블을 삭제할 수 있다.
+  ```sql
+  drop 객체 객체명
+  ```
 
