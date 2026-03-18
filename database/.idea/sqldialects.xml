@@ -15,6 +15,10 @@
     <file url="file://$PROJECT_DIR$/day4/1.대량 삽입.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/day4/2.CREATE.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/day4/3.ALTER.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day4/4.내장함수.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day4/5.NULL.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day4/6.행번호.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day4/7.Sakila_practice.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/day4/sakila-data.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/day4/sakila-schema.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/day4/world.sql" dialect="MySQL" />

@@ -370,18 +370,20 @@ CREATE USER 사용자명 IDENTIFIED BY 비번;
 
 ## 4일차
 
-### 데이터베이스 연습 자료
+### 데이터베이스 연습 자료 
 - insert into 대량 삽입 - mysql 방법
 ```sql
 insert into 테이블명 values (컬럼1값... 컬럼n값),
 (컬럼1값... 컬럼n값),
 (컬럼1값... 컬럼n값),
 ```
-
-
 - https://dev.mysql.com/doc/index-other.html?ref=dbwriter.io
 - https://www.mysqltutorial.org/getting-started-with-mysql/mysql-sample-database/
 
+
+`sakila` 
+  - 스키마 : [쿼리](database/day4/sakila-schema.sql)
+  - DB : [쿼리](database/day4/sakila-data.sql)
 
 ### DDL 계속
 
@@ -392,7 +394,7 @@ insert into 테이블명 values (컬럼1값... 컬럼n값),
 - 종류: 기본키(primary key), 단일(unique),널 허용 여부(null), 체크(check), 기본값(default), 외래키(foreign key)
 
 
-#### create 계속
+#### create 계속 [쿼리](database/day4/2.CREATE.sql)
 - create 구문
   - primary key (컬럼1 또는 여러개)
   - foreign key (custid) references NewCustomer(custid) on delete cascade
@@ -403,7 +405,7 @@ insert into 테이블명 values (컬럼1값... 컬럼n값),
 - AUTO_INCREMENT : 테이블에 데이터 삽입할때 숫자타입 pk의 값을 자동으로 증가시켜서 만들어주는 기능
   - pk컬럼은 insert 문에서 생략
   
-#### ALTER
+#### ALTER [쿼리](database/day4/3.ALTER.sql)
 - alter 
   - 객체 수정, 테이블 이외에서 많이 사용 안됨
 ```sql
@@ -418,7 +420,7 @@ alter table 테이블명
 
 
 
-#### DROP
+#### DROP [쿼리](database/day4/3.ALTER.sql)
 - drop
   - 객체 삭제
   - 테이블에서 관계를 맺고 있는 자식테이블을 먼저 삭제해야 부모테이블을 삭제할 수 있다.
@@ -426,3 +428,48 @@ alter table 테이블명
   drop 객체 객체명
   ```
 
+### 내장함수 [쿼리](database/day4/4.내장함수.sql)
+
+- c, c++ 내장함수와 동일
+
+### NULL [쿼리](database/day4/5.NULL.sql)
+- 아직 지정되지 않은 값
+- '0', '', ' ' 과 다름 
+- c, c++ 의 '0\' 과 동일한 의미 
+- 비교 연산 불가
+- IS, IS NOT 만 사용 가능
+- NULL 값을 연산하면 결과도 NULL이 됨
+  - NULL + 숫자 => NULL
+  - 집계함수 계산시 NULL 포함된 행은 집계에서 자동 제외됨
+  
+### 쿼리연습
+![sakila_erd](database/day4/sakila.png)
+[쿼리](database/day4/7.Sakila_practice.sql)
+
+
+
+
+
+
+
+
+### 뷰
+
+
+### 인덱스
+
+
+### 트랜잭션, 동시성제어
+- TCL
+
+### 보안 및 관리
+
+
+### 사용자
+- DDL
+
+### 권한
+
+- DCL
+
+### 
