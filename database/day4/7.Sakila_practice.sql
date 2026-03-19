@@ -80,5 +80,3 @@ group by c.name with rollup;
 
 
 
-
-

@@ -22,5 +22,15 @@
     <file url="file://$PROJECT_DIR$/day4/sakila-data.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/day4/sakila-schema.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/day4/world.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day5/1.sakila_practice.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day5/2.뷰.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day5/3.인덱스.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day5/4.CTE.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day5/MySQL_Alala/1.Alala_데이터베이스_사용자생성.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day5/MySQL_Alala/2.Alala_테이블생성.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day5/MySQL_Alala/3.Alala_Book_RandomData.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day5/MySQL_Alala/4.Alala_Customer_RandomData.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day5/MySQL_Alala/8.Alala_Orders_Data.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day5/김학태.sql" dialect="MySQL" />
   </component>
 </project>

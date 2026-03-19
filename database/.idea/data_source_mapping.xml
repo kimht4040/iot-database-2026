@@ -21,5 +21,15 @@
     <file url="file://$PROJECT_DIR$/day4/7.Sakila_practice.sql" value="06375f3c-b003-42da-984a-2bfd5ed37358" />
     <file url="file://$PROJECT_DIR$/day4/sakila-schema.sql" value="5204a996-dfb9-44b0-89c7-8bdf895a4996" />
     <file url="file://$PROJECT_DIR$/day4/world.sql" value="5204a996-dfb9-44b0-89c7-8bdf895a4996" />
+    <file url="file://$PROJECT_DIR$/day5/1.sakila_practice.sql" value="06375f3c-b003-42da-984a-2bfd5ed37358" />
+    <file url="file://$PROJECT_DIR$/day5/2.뷰.sql" value="655a9bce-35f7-4ae0-9cee-bf269470c5c9" />
+    <file url="file://$PROJECT_DIR$/day5/3.인덱스.sql" value="655a9bce-35f7-4ae0-9cee-bf269470c5c9" />
+    <file url="file://$PROJECT_DIR$/day5/4.CTE.sql" value="655a9bce-35f7-4ae0-9cee-bf269470c5c9" />
+    <file url="file://$PROJECT_DIR$/day5/MySQL_Alala/1.Alala_데이터베이스_사용자생성.sql" value="5204a996-dfb9-44b0-89c7-8bdf895a4996" />
+    <file url="file://$PROJECT_DIR$/day5/MySQL_Alala/2.Alala_테이블생성.sql" value="5204a996-dfb9-44b0-89c7-8bdf895a4996" />
+    <file url="file://$PROJECT_DIR$/day5/MySQL_Alala/3.Alala_Book_RandomData.sql" value="27638c68-e6b6-4eb1-9f44-af167f62dad8" />
+    <file url="file://$PROJECT_DIR$/day5/MySQL_Alala/4.Alala_Customer_RandomData.sql" value="27638c68-e6b6-4eb1-9f44-af167f62dad8" />
+    <file url="file://$PROJECT_DIR$/day5/MySQL_Alala/8.Alala_Orders_Data.sql" value="27638c68-e6b6-4eb1-9f44-af167f62dad8" />
+    <file url="file://$PROJECT_DIR$/day5/김학태.sql" value="27638c68-e6b6-4eb1-9f44-af167f62dad8" />
   </component>
 </project>
