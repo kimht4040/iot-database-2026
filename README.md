@@ -543,15 +543,134 @@ alter table 테이블명
 
 - db툴 설정에서 오토 커밋 끄기
   - set autocommit = 0;
+  - 아니면 툴 자체 설정에서 해제하기
+  - 데이터그립의 경우 파일 상단에 있음
+  - ![alt text](image-3.png)
+
+#### 트랜잭션 쿼리 [쿼리](<database/day6/1. 트랜잭션.sql>)
+- 기본
+    ```sql
+    start transaction; -- 트랜잭션 시작
+    -- 쿼리들 실행
+    commit; -- 모두 저장, 완벽하게 동작하는 경우만 커밋 실행
+    rollback; -- 커밋 직전 상태로 돌아감
+    ```
+- 세이브포인트
+  ```sql
+  start transaction;
+  savepoint p1; -- 세이브포인트 설정해서 사용
+    -- 쿼리들 실행
+  rollback to p1; -- 세이브포인트 시점으로 이동 세이브 포인트 이후 실행한 쿼리들은 모두 초기화됨 
+  ```
+
+#### 동시성제어 [쿼리](database/day6/2.동시성제어.sql)
+- 개요
+  - 여러 트랜잭션이나 프로세스가 동시에 실행될때 데이터의 일관성을 유지하면서 처리하는 것 
+  - lock, isolation level, mvcc 등 동시성 제어기법 사용
+
+
+  - ![alt text](KakaoTalk_Photo_2026-03-20-13-52-48.png)
+  - ![alt text](KakaoTalk_Photo_2026-03-20-13-52-51.png)
+
+
+- 행 단위 락 - 일반적인 락 
+  - 세션 1번이 특정 데이터의 트랜잭션을 종료하지 않으면
+  - 세션 2번은 데이터를 update, delete할 수 없음 
+- 락 걸린상태
+![alt text](2026-03-20_12-15-57.png)
+  - 서로 다른 행의 데이터는 접근가능함
+
+
+- 격리수준 - 동시에 여러 트랜잭션이 실행될 때 서로의 데이터에 얼마나 영향을 줄지 제어하는 기준
+  - 최하 - read uncommitted - 커밋되지 않은 데이터 읽을 수 있음(사용안함)
+    - set session transaction isolation level read committed 로 실행함
+  - 중간 - read committed - 커밋된 데이터만 읽음
+  - 기본 - rpeatable read - mysql 기본값, 같은 트랜잭션 안에서는 항상 같은 결과
+  - 최고수준 - serializable  - 순차적 실행, 동시성없음, 안전하지만 성능 최악
+  - ![alt text](image-4.png)
+
+
+
+- 동시성 제어 문제 
+  - Dirty Read - 다른 트랜잭션이 아직 커밋하지 않은 데이터를 읽는 현상
+
+
+  - Non-repeqtable Read - 같은 트랜잭션 안에서 같은 데이터를 두번 읽었을때 결과가 다른 현상
+  - Phantom Read - 같은 조건으로 두 번 조회시 행 개수가 달라지는 현상 
+
+- 격리수준과 동시성 제어 정리
+  |격리수준|Dirty Read|Non-repeqtable Read|Phantom Read|
+  |:--:|:--:|:--:|:--:|
+  |read uncomitted|방지|가능|가능|
+  |repeatable read|방지|가능|일부 방지|
+  |serializable|방지|방지|방지|
+
+- 데드락
+  - mysql은 데드락이 오래 걸리지 않도록 50초 후 데드락을 풀어버림
+  - 트랜잭션이 종료된 것은 아니므로 따로 커밋, 롤백을 수행해야함
+  - 트랜잭션을 짧게 유지 할 것.
+
+
+- 테이블락
+  - 테이블 전체를 락
+  - commit rollback 과 관계없이 언락을 해줘야 다른 트랜잭션에서 접근 가능 함
 
 ### 보안 및 관리
 
 
-### 사용자
-- DDL
+### 사용자 [쿼리](database/day6/3.user_grant.sql)
+- 사용자 생성 및 삭제 
+  - 데이터베이스를 사용할 계정을 생성 쿼리, DDL
+  - 생성 삭제는 root 계정에서만 가능함
+  ```sql
+  -- 사용자 생성
+  create user '사용자명'@'local.host|%' identified by '비밀번호';
+
+  -- 사용자 삭제
+  drop user '사용자명'
+
+  -- 사용자 비밀번호 변경
+  alter user 'hugo'@'%' identified by 'my123456';
+  ```
 
 ### 권한
+- DCL - 사용자에게 권한을 설정
+  - 대부분 관리자가 수행함
+  - grant, revoke
+  ```sql
+  -- 권한 부여
+  grant all privileges on 데이터베이스.* to 'hugo'@'%';
 
-- DCL
+  -- 특정 권한 부여
+  grant select, insert, update on 데이터베이스.* to 'hugo'@'%';
+  
+  -- 권한 제거
+  revoke all privileges on 데이터베이스.* from 'hugo'@'%';
 
-### 
+  ```
+
+#### mysql 백업 복구
+- dump, restore
+  - *.sql 파일로 내보내기
+![alt text](image-5.png)
+
+### MySQL 프로그래밍
+#### 데이터베이스 프로그래밍
+- 각 db마다 프로그래밍 언어가 상이
+  - Oracle : 'PL/SQL'
+  - SQL Server : T-SQL
+  - MySQL : MySQL Programming
+- 일반 프로그래밍 언어와 차이점 존재
+  - DB 전용 프로그램 개발
+- mysql의 경우 함수 안정성 체크옵션으로 생성불가 발생
+  - 관리자에서 실행
+
+
+#### 사용자 정의 함수 [쿼리](database/day6/4.프로시저.sql)
+- 내장함수에 없는 기능의 함수를 추가로 개발하는 것
+
+#### 저장 프로시저
+#### 트리거
+
+
+### c/c++ MySQL 연동

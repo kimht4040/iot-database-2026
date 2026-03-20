@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourcePerFileMappings">
-    <file url="file://$PROJECT_DIR$/1. 트랜잭션.sql" value="655a9bce-35f7-4ae0-9cee-bf269470c5c9" />
     <file url="file://$PROJECT_DIR$/day1/1. SELECT기본.sql" value="655a9bce-35f7-4ae0-9cee-bf269470c5c9" />
     <file url="file://$PROJECT_DIR$/day2/1. SELECT기본.sql" value="655a9bce-35f7-4ae0-9cee-bf269470c5c9" />
     <file url="file://$PROJECT_DIR$/day2/1. 연습문제.sql" value="655a9bce-35f7-4ae0-9cee-bf269470c5c9" />
@@ -32,5 +31,9 @@
     <file url="file://$PROJECT_DIR$/day5/MySQL_Alala/4.Alala_Customer_RandomData.sql" value="27638c68-e6b6-4eb1-9f44-af167f62dad8" />
     <file url="file://$PROJECT_DIR$/day5/MySQL_Alala/8.Alala_Orders_Data.sql" value="27638c68-e6b6-4eb1-9f44-af167f62dad8" />
     <file url="file://$PROJECT_DIR$/day5/김학태.sql" value="27638c68-e6b6-4eb1-9f44-af167f62dad8" />
+    <file url="file://$PROJECT_DIR$/day6/1. 트랜잭션.sql" value="5204a996-dfb9-44b0-89c7-8bdf895a4996" />
+    <file url="file://$PROJECT_DIR$/day6/2.동시성제어.sql" value="655a9bce-35f7-4ae0-9cee-bf269470c5c9" />
+    <file url="file://$PROJECT_DIR$/day6/3.user_grant.sql" value="5204a996-dfb9-44b0-89c7-8bdf895a4996" />
+    <file url="file://$PROJECT_DIR$/day6/4.프로시저.sql" value="655a9bce-35f7-4ae0-9cee-bf269470c5c9" />
   </component>
 </project>
