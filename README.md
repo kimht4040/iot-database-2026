@@ -523,8 +523,26 @@ alter table 테이블명
   ```
 
 
+
+## 6일차
+
 ### 트랜잭션, 동시성제어
 - TCL
+  - Transaction Control Language에 포함된 start transaction, commit, roolback, savepoint
+
+#### Transaction
+- 트랜잭션
+  - 일을 처리하는 논리적인 단위 그룹
+  - 여러 쿼리들이 실행되어 완성되는 하나의 논리그룹 처리 단위
+
+- 트랜잭션 4가지 특징(ACID)
+  - 원자성(Atomicity) : 전부 성공하거나 전부 실패(All or Nothing)
+  - 일관성(consistency): 거래 전후로 데이터 규칙이 유지됨
+  - 격리성(Isolation): 여러사람이 동시에 처리해도 서로 영향이 없음
+  - 지속성(Durability): 성공한 처리는 절대 사라지지 않음
+
+- db툴 설정에서 오토 커밋 끄기
+  - set autocommit = 0;
 
 ### 보안 및 관리
 
