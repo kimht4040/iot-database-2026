@@ -1,0 +1,16 @@
+# --- JetBrains & IDE 관련 (어느 폴더에 있든 다 무시) ---
+.idea/
+*.iws
+*.iml
+
+# --- C++ 빌드 결과물 (하위 모든 폴더의 cmake 폴더 무시) ---
+**/cmake-build-debug/
+**/cmake-build-release/
+**/build/
+
+# --- macOS 시스템 파일 ---
+.DS_Store
+
+# --- 기타 실행 파일 ---
+*.exe
+*.out

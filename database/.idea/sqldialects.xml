@@ -40,5 +40,6 @@
     <file url="file://$PROJECT_DIR$/day7/2.커서.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/day7/3.트리거.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/day7/3.트리거원형.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day7/4.c++연동.sql" dialect="MySQL" />
   </component>
 </project>
