@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # 현재 날짜 가져오기 (예: 2026-03-20)
-TODAY=$(date "+%Y-%m-%d")
+TODAY=$(date "+%Y-%m-%d %H")
 
 # Git 명령어 실행
 git add .

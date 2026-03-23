@@ -1,0 +1,31 @@
+create procedure madangdb.prc_getInerest()
+begin
+    declare vinterest int default 0;
+    declare vprice int; -- 커서당 order 테이블 salprice 각각 담을 변수
+    declare endOfRow boolean default false;
+    declare interestCursor cursor for
+    select Orders.saleprice from Orders; -- orders 테이블 salprice를 하나씩
+    declare  continue handler for
+        not found set endOfRow=true;
+
+
+    open interestCursor; -- 커서 오픈
+    cursor_loop:loop
+        -- orders의 salprice 값이 반복적으로 vprice에 할당
+        fetch interestCursor into vprice;
+        -- 마지막에 커서 반복문 탈출(break와 동일)
+        if endOfRow then leave cursor_loop;
+        end if;
+        -- vprice에 들어온 값이 3만원 이상이면 10% 이윤 계산
+        -- 3만원 아래면 5% 이윤 계산
+        if vprice >= 30000 then
+            set vinterest = vinterest + vprice * 0.1;
+            else
+            set vinterest = vinterest + vprice * 0.05;
+        end if;
+    end loop;
+    close interestCursor; -- 커서 종료
+
+    select concat('전체 익금 = ', vinterest);
+
+end;

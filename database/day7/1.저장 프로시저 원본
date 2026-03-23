@@ -1,0 +1,53 @@
+create
+    definer = madang@`%` procedure prc_InsertOrUpdateBook(IN vbookID int, IN vbookName varchar(40),
+                                                          IN vpublisher varchar(40), IN vprice int)
+begin
+    declare vcount int;
+    select count(*) into vcount
+    from Book
+        where bookname like vbookName;
+
+    if vcount != 0 then
+        set SQL_SAFE_UPDATES = 0; -- mysql 안전 업데이트 모드 끄기
+        -- 같은 데이터가 있으니 업데이트
+        update Book
+        set price = vprice,
+            publisher = vpublisher
+        where bookname like vbookName;
+    else
+        -- 새로추가!
+        insert into Book values (vbookID, vbookName,vpublisher,vprice);
+    end if;
+end;
+
+create procedure madangdb.prc_InsertOrUpdateBook(
+    IN vbookID int, IN vbookName varchar(40), IN vpublisher varchar(40),
+                                                  IN vprice int
+)
+begin
+    declare vcount int;
+    select count(*) into vcount
+    from Book
+        where bookname like vbookName;
+
+    if vcount != 0 then
+        set SQL_SAFE_UPDATES = 0; -- mysql 안전 업데이트 모드 끄기
+        -- 같은 데이터가 있으니 업데이트
+        update Book
+        set price = vprice,
+            publisher = vpublisher
+        where bookname like vbookName;
+    else
+        -- 새로추가!
+        insert into Book values (vbookID, vbookName,vpublisher,vprice);
+    end if;
+end;
+
+create
+    definer = madang@`%` procedure prc_insertbook(IN vbookID int, IN vbookName varchar(40), IN vpublisher varchar(40),
+                                                  IN vprice int)
+begin
+    insert into Book(bookid, bookname, publisher, price)
+        values (vbookID, vbookName,vpublisher, vprice);
+end;
+

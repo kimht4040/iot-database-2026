@@ -35,6 +35,10 @@
     <file url="file://$PROJECT_DIR$/day6/1. 트랜잭션.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/day6/2.동시성제어.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/day6/3.user_grant.sql" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/day6/4.프로시저.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day6/4.함수.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day7/1.저장프로시저.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day7/2.커서.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day7/3.트리거.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day7/3.트리거원형.sql" dialect="MySQL" />
   </component>
 </project>
