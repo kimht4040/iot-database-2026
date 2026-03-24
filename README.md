@@ -1009,3 +1009,10 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
   2. Filter: orders_big.customer_id(where절에서 필터링한 내용), actual time(현재까지 걸린시간 1+2, 3번의 actual time 은 1+2+3)시간이 1258..2789로 급격하게 증가함
   3. Sort : orders_big.order_date DESC(주문날짜 기준 내림차순 정렬) 최종시간 2790..2790
 
+- 인덱스 추가 후
+```text
+/* 인덱스 추가 후 실행계획
+-> Sort: orders_big.order_date DESC  (cost=28.6 rows=26) (actual time=1.97..1.97 rows=26 loops=1)
+    -> Index lookup on orders_big using idx_orders_customer_id (customer_id=123456)  (cost=28.6 rows=26) (actual time=0.449..1.93 rows=26 loops=1)
+*/
+```
