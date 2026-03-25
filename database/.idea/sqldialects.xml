@@ -45,5 +45,7 @@
     <file url="file://$PROJECT_DIR$/day8/2.빅테이블.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/day8/5.대량삽입프로시저실행.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/day8/6.인덱스실습.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day9/bookrentalshop_data.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day9/bookrentalshop_schema.sql" dialect="MySQL" />
   </component>
 </project>

@@ -1016,3 +1016,68 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
     -> Index lookup on orders_big using idx_orders_customer_id (customer_id=123456)  (cost=28.6 rows=26) (actual time=0.449..1.93 rows=26 loops=1)
 */
 ```
+
+
+## 9일차
+
+#### windows 라이브러리 연동
+![alt text](KakaoTalk_Photo_2026-03-25-09-48-05.png)
+![alt text](KakaoTalk_Photo_2026-03-25-09-48-09.png) 
+![alt text](KakaoTalk_Photo_2026-03-25-09-48-12.png) 
+
+
+
+#### C++ MySQL 연동
+- 기본 연결확인 구현
+- 테이블 데이터 확인 
+  - 쿼리문 문자열 마지막; 무조건 제거(오류발생)
+- MySQL 연동순서 
+  1. 콘솔 인코딩 UTF-8 설정
+  2. 연결, 행데이터, 결과 구조체 변수, 포인터 변수 선언
+  3. MySQL 초기화
+  4. 접속정보로 접속
+  5. 서버 문자셋 UTF-8 설정
+  6. 쿼리 실행
+  7. 결과 메모리 저장
+  8. 한 행씩 Fetch, 출력
+  9. 메모리 해제
+  10. 접속 종료
+
+
+
+#### MySQL CRUD 앱 구현
+- c학습 addressbook 프로젝트와 비교
+  - file IO vs MySQL DB 
+  - contact 구조체 vs mysql 자체 구조체 사용
+  - 파일 관련 작업 vs mysql 함수로 처리
+
+![](image-13.png)
+
+- MySQL CPP api 함수 목록
+  1. 드라이버 객체 생성 - sql::mysql::MySQL_Driver *driver= sql::mysql::get_mysql_driver_instance();
+  2. 연결 설정 - sql::Connection *con= driver->connect(host, user, pass);
+  3. 스키마 선택 - con->setSchema(dbName);
+  4. 예외처리 에러 - sql::SQLException &e
+  5. 에러 코드 - e.getErrorCode();
+  6. 에러 내용 - e.what();
+  7. 쿼리 보내고 쿼리 내용 받아오기 - unique_ptr<sql::Statement> stmt(con->createStatement());
+        unique_ptr<sql::ResultSet> res(stmt->executeQuery("SELECT * FROM Book"));
+        int id = res->getInt("bookid");
+            string name = res->getString("bookname");
+  8. 쿼리문작성 - unique_ptr<sql::PreparedStatement> pstmt(con->prepareStatement());
+  9. 작성한 쿼리문 실행 - pstmt->executeUpdate();
+
+
+- MySQL Connector/c++
+  - MySQL C API를 C++로 클래스화 한 라이브러리
+  - 객체화, 예외처리 기능 고급화
+  - 운영체제 환경에 영향을 많이 받음
+  - 설정난이도가 높음
+  - 유지보수하기 좋음
+
+- MySQL C API
+  - C언어 기반
+  - 함수 중심임
+  - 사용난이도 낮음
+  - 설정난이도 낮음
+  - 예외처리를 직접 해야함
